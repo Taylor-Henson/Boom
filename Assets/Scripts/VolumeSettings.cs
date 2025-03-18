@@ -11,8 +11,8 @@ public class VolumeSettings : MonoBehaviour
     public Slider sfxSlider;
 
     // Channels
-    const string MIXER_MUSIC = "MusicVolume";
-    const string MIXER_SFX = "SFXVolume";
+    public const string MIXER_MUSIC = "MusicVolume";
+    public const string MIXER_SFX = "SFXVolume";
 
     #region Changing Volume
 
@@ -39,7 +39,19 @@ public class VolumeSettings : MonoBehaviour
 
     #region PlayerPrefs
 
+    private void Start()
+    {
+        // Sets music Slider value to stored playerprefs key, if not set to 100%
+        musicSlider.value = PlayerPrefs.GetFloat(AudioManager.MUSIC_KEY, 1f);
+        sfxSlider.value = PlayerPrefs.GetFloat(AudioManager.SFX_KEY, 1f);
+    }
 
+    private void OnDisable()
+    {
+        // When disabled, updated the key to slider values
+        PlayerPrefs.SetFloat(AudioManager.MUSIC_KEY, musicSlider.value);
+        PlayerPrefs.SetFloat(AudioManager.SFX_KEY, sfxSlider.value);
+    }
 
     #endregion
 

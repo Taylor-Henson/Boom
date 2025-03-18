@@ -72,6 +72,15 @@ public class Movement : MonoBehaviour
             readyToJump = false;
             Invoke("ResetJump", jumpCooldown);
         }
+
+        if (Input.GetButton("Fire2"))
+        {
+            StartCoroutine(AudioManager.instance.PlayMusic(0));
+        }
+        if (Input.GetButton("Fire1"))
+        {
+            AudioManager.instance.PlaySFX(0);
+        }
     }
 
     #endregion
