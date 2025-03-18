@@ -3,16 +3,17 @@ using UnityEngine;
 public class Movement : MonoBehaviour
 {
     [Header("Movement")]
-    // References
-    public Transform orientation;
-    Rigidbody rb;
-    Vector3 moveDirection;
+    // Animations
+    public Animator animator;
     
     // Input
     float horizontalInput;
     float verticalInput;
 
     // Movement
+    Vector3 moveDirection;
+    Rigidbody rb;
+    public Transform orientation;
     public float moveSpeed;
     public float groundDrag;
 
