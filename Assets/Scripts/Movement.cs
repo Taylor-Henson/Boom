@@ -2,10 +2,7 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Movement")]
-    // Animations
-    public Animator animator;
-    
+    [Header("Movement")]  
     // Input
     float horizontalInput;
     float verticalInput;
