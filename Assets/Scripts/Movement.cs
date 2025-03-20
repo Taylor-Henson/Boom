@@ -2,19 +2,18 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    [Header("Movement")]  
-    // Input
+    [Header("Input")]  
     float horizontalInput;
     float verticalInput;
 
-    // Movement
+    [Header("Movement")]
     Vector3 moveDirection;
     Rigidbody rb;
     public Transform orientation;
     public float moveSpeed;
     public float groundDrag;
 
-    // Jumping
+    [Header("Jumping")]
     public float jumpForce;
     public float jumpCooldown;
     public float airMultiplier;
@@ -72,15 +71,6 @@ public class Movement : MonoBehaviour
             readyToJump = false;
             Invoke("ResetJump", jumpCooldown);
         }
-
-        if (Input.GetButton("Fire2"))
-        {
-            StartCoroutine(AudioManager.instance.PlayMusic(0));
-        }
-        if (Input.GetButton("Fire1"))
-        {
-            AudioManager.instance.PlaySFX(0);
-        }
     }
 
     #endregion
@@ -112,7 +102,7 @@ public class Movement : MonoBehaviour
     void GroundCheck()
     {
         // Raycast from the player downwards checking for ground
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, 1.5f, whatIsGround);
 
         if (grounded)
         {

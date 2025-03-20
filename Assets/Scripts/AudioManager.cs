@@ -95,17 +95,4 @@ public class AudioManager : MonoBehaviour
 
     #endregion
 
-    private void Update()
-    {
-        if (Input.GetKeyDown("1"))
-        {
-            SceneManager.LoadScene("Test");
-        }
-        if (Input.GetKeyDown("2"))
-        {
-            SceneManager.LoadScene("MainMenu");
-        }
-
-    }
-
 }
