@@ -49,10 +49,8 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: c9fab7165b2084a4b963271f705494cf, type: 2}
   musicSource: {fileID: 4389706112277040886}
   sfxSource: {fileID: 8793482750250002115}
-  music:
-  - {fileID: 8300000, guid: d144dadbc25105e4eb91ac006595513b, type: 3}
-  sfx:
-  - {fileID: 8300000, guid: 40f9c6bf9f852a14ab5aa49b1f3bfc9f, type: 3}
+  music: []
+  sfx: []
 --- !u!1 &3349923100453023976
 GameObject:
   m_ObjectHideFlags: 0

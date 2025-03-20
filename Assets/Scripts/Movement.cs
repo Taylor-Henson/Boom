@@ -22,7 +22,7 @@ public class Movement : MonoBehaviour
 
     [Header("Ground Check")]
     public LayerMask whatIsGround;
-    public float playerHeight;
+    public float playerHeight = 2;
     public bool grounded;
 
     #region Start and Update
@@ -42,6 +42,8 @@ public class Movement : MonoBehaviour
         MyInput();
         GroundCheck();
         SpeedControl();
+
+        Debug.DrawRay(transform.position, Vector3.down, Color.green);
     }
 
     private void FixedUpdate()
@@ -110,7 +112,7 @@ public class Movement : MonoBehaviour
     void GroundCheck()
     {
         // Raycast from the player downwards checking for ground
-        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.2f, whatIsGround);
+        grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight, whatIsGround);
 
         if (grounded)
         {
@@ -122,6 +124,7 @@ public class Movement : MonoBehaviour
             // If not grounded, remove drag
             rb.linearDamping = 0;
         }
+
     }
 
     #endregion
