@@ -5,19 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
-    // Singleton
+    [Header("Singleton")]
     public static AudioManager instance;
-    
-    // Volume Settings and Playerprefs
+
+    [Header("Volume Settings and Playerprefs")]
     public AudioMixer mixer;
     public const string MUSIC_KEY = "musicVolume";
     public const string SFX_KEY = "sfxVolume";
 
-    // Audiosources
+    [Header("Audiosources")]
     public AudioSource musicSource;
     public AudioSource sfxSource;
 
-    // Audioclips
+    [Header("Audioclips")]
     public AudioClip[] music;
     public AudioClip[] sfx;
 
@@ -25,6 +25,7 @@ public class AudioManager : MonoBehaviour
 
     void Awake()
     {
+        // Singleton method
         if (instance == null)
         {
             instance = this;

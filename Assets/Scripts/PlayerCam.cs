@@ -2,14 +2,13 @@ using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
 {
-    // References
-    public Transform orientation;
 
-    // Sensitivities
+    [Header("Sensitivities")]
     public float sensX;
     public float sensY;
 
-    // Rotations
+    [Header("Rotation")]
+    public Transform orientation;
     float xRotation;
     float yRotation;
 

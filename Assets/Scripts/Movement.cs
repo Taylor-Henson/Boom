@@ -1,3 +1,4 @@
+using JetBrains.Annotations;
 using UnityEngine;
 
 public class Movement : MonoBehaviour
@@ -24,6 +25,9 @@ public class Movement : MonoBehaviour
     public float playerHeight = 2;
     public bool grounded;
 
+    [Header("Animations")]
+    public Animator cameraAnim;
+
     #region Start and Update
 
     void Start()
@@ -41,8 +45,7 @@ public class Movement : MonoBehaviour
         MyInput();
         GroundCheck();
         SpeedControl();
-
-        Debug.DrawRay(transform.position, Vector3.down, Color.green);
+        Animations();
     }
 
     private void FixedUpdate()
@@ -79,6 +82,7 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
+
         // Calculates the direction the player should move by taking local axis and multiplying them by the values found from inputs
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
@@ -151,6 +155,25 @@ public class Movement : MonoBehaviour
     {
         // Makes the jump ready again
         readyToJump = true;
+    }
+
+    #endregion
+
+    #region Animations
+
+    void Animations()
+    {
+        // Checks for if the player is grounded and moving
+        if (grounded && horizontalInput != 0 || verticalInput != 0)
+        {
+            // Makes the camera bob more
+            cameraAnim.SetBool("Moving", true);
+        }
+        else
+        {
+            // Ends the animation
+            cameraAnim.SetBool("Moving", false);
+        }
     }
 
     #endregion
