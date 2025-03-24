@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerCam : MonoBehaviour
@@ -20,6 +21,11 @@ public class PlayerCam : MonoBehaviour
     }
 
     void Update()
+    {
+        CameraMovement();
+    }
+
+    void CameraMovement()
     {
         // Creates a float from mouse inputs taken, multiplied by time and sensitivity
         float mouseX = Input.GetAxisRaw("Mouse X") * Time.deltaTime * sensX;

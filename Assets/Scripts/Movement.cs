@@ -1,5 +1,6 @@
 using JetBrains.Annotations;
 using UnityEngine;
+using TMPro;
 
 public class Movement : MonoBehaviour
 {
@@ -28,6 +29,12 @@ public class Movement : MonoBehaviour
     [Header("Animations")]
     public Animator cameraAnim;
 
+    [Header("Dash")]
+    public TextMeshProUGUI dashesText;
+    public int dashes = 3;
+    public float dashCoolDown;
+    public bool canDash = true;
+
     #region Start and Update
 
     void Start()
@@ -46,6 +53,19 @@ public class Movement : MonoBehaviour
         GroundCheck();
         SpeedControl();
         Animations();
+
+        // Text
+        dashesText.text = "" + dashes;
+
+        // Checks if the player has dashes available
+        if (dashes <= 0)
+        {
+            canDash = false;
+        }
+        else
+        {
+            canDash = true;
+        }
     }
 
     private void FixedUpdate()
@@ -73,6 +93,13 @@ public class Movement : MonoBehaviour
             // Jump Cooldown
             readyToJump = false;
             Invoke("ResetJump", jumpCooldown);
+        }
+
+        // Dash input
+        if (Input.GetKeyDown(KeyCode.C) && canDash)
+        {
+            // Calls the dash method
+            Dash();
         }
     }
 
@@ -174,6 +201,30 @@ public class Movement : MonoBehaviour
             // Ends the animation
             cameraAnim.SetBool("Moving", false);
         }
+    }
+
+    #endregion
+
+    #region Dash
+    void Dash()
+    {
+        int force = 20;
+
+        // Applies the dash force
+        rb.AddForce(moveDirection.normalized * force, ForceMode.Impulse);
+
+        // Takes away one dash and begins cooldown
+        dashes--;
+        Invoke("DashCooldown", dashCoolDown);
+
+        // Plays audio
+        AudioManager.instance.PlaySFX(2);
+    }
+
+    void DashCooldown()
+    {
+        // Adds one dash store
+        dashes++;
     }
 
     #endregion
