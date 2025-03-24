@@ -36,7 +36,6 @@ public class Grenade : MonoBehaviour
 
     void Explode()
     {
-        explosion.transform.position = transform.position;
         Destroy(gameObject);
         Instantiate(explosion, transform.position, Quaternion.identity);
     }
