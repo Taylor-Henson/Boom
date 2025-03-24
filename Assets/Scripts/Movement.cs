@@ -96,7 +96,7 @@ public class Movement : MonoBehaviour
         }
 
         // Dash input
-        if (Input.GetKeyDown(KeyCode.C) && canDash)
+        if (Input.GetKeyDown("c") && canDash)
         {
             // Calls the dash method
             Dash();
@@ -226,6 +226,10 @@ public class Movement : MonoBehaviour
         // Adds one dash store
         dashes++;
     }
+
+    #endregion
+
+    #region Sound
 
     #endregion
 }

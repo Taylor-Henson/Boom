@@ -26,6 +26,10 @@ public class Shotgun : MonoBehaviour
     public float magazineSize = 6;
     public float bulletsLeft;
 
+    [Header("Grenade")]
+    public GameObject grenade;
+    public Transform grenadeSpawn;
+
     [Header("Impulse")]
     public Rigidbody playerRigidbody;
 
@@ -70,6 +74,13 @@ public class Shotgun : MonoBehaviour
         {
             BeginReload();
         }
+
+        // Input for throwing grenade
+        if (Input.GetKeyDown("e"))
+        {
+            Instantiate(grenade, grenadeSpawn.transform.position, Quaternion.identity);
+        }
+
     }
 
     #endregion

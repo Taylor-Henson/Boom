@@ -2762,6 +2762,37 @@ RectTransform:
   m_AnchoredPosition: {x: 400, y: -150}
   m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1374603457
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1374603458}
+  m_Layer: 0
+  m_Name: GrenadeSpawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1374603458
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1374603457}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1432654825}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1404790404
 GameObject:
   m_ObjectHideFlags: 0
@@ -2899,6 +2930,7 @@ Transform:
   m_Children:
   - {fileID: 1448053986}
   - {fileID: 4183886819795760283}
+  - {fileID: 1374603458}
   m_Father: {fileID: 1682292028}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1432654826
@@ -3372,6 +3404,8 @@ MonoBehaviour:
   firing: 0
   magazineSize: 6
   bulletsLeft: 0
+  grenade: {fileID: 5990842471433371357, guid: 5d2d328c26521374f8962eacfb6013d4, type: 3}
+  grenadeSpawn: {fileID: 1374603458}
   playerRigidbody: {fileID: 1667104632}
 --- !u!1 &1652611895
 GameObject:
@@ -3543,7 +3577,7 @@ MonoBehaviour:
   cameraAnim: {fileID: 469848385}
   dashesText: {fileID: 151959719}
   dashes: 3
-  dashCoolDown: 3
+  dashCoolDown: 5
   canDash: 1
 --- !u!1 &1682292026
 GameObject:
