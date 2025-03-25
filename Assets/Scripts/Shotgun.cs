@@ -29,6 +29,9 @@ public class Shotgun : MonoBehaviour
     [Header("Grenade")]
     public GameObject grenade;
     public Transform grenadeSpawn;
+    public TextMeshProUGUI grenadeText;
+    public int grenades = 3;
+    public bool canUseGrenade;
 
     [Header("Impulse")]
     public Rigidbody playerRigidbody;
@@ -49,6 +52,7 @@ public class Shotgun : MonoBehaviour
 
         // UI
         ammoText.text = bulletsLeft +  " / " + magazineSize;
+        grenadeText.text = "" + grenades;
     }
 
     #endregion
@@ -76,9 +80,10 @@ public class Shotgun : MonoBehaviour
         }
 
         // Input for throwing grenade
-        if (Input.GetKeyDown("e"))
+        if (Input.GetKeyDown("e") && canUseGrenade)
         {
             Instantiate(grenade, grenadeSpawn.transform.position, Quaternion.identity);
+            grenades--;
         }
 
     }
@@ -129,9 +134,19 @@ public class Shotgun : MonoBehaviour
 
     #endregion
 
-    #region Checking if player can fire and reloading
+    #region Checking if player can fire, throw grenades and reloading
     void CanPlayerShoot()
     {
+        // Checks if any grenades can be thrown
+        if (grenades <= 0)
+        {
+            canUseGrenade = false;
+        }
+        else
+        {
+            canUseGrenade = true;
+        }
+
         // Decided if the player can fire yet
         if (!firing && !reloading && bulletsLeft > 0)
         {

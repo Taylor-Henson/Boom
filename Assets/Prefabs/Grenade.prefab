@@ -102,15 +102,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rigidbody: {fileID: 7201736606324964940}
-  rotationSpeed: 100
-  explosion: {fileID: 19800004, guid: f147734869668d24980c79d1bffa8146, type: 3}
-  radius: 5
+  rotationSpeed: 1
   player:
     serializedVersion: 2
     m_Bits: 256
   enemy:
     serializedVersion: 2
     m_Bits: 128
+  radius: 5
+  explosion: {fileID: 19800004, guid: f147734869668d24980c79d1bffa8146, type: 3}
 --- !u!54 &7201736606324964940
 Rigidbody:
   m_ObjectHideFlags: 0
