@@ -4,6 +4,8 @@ using TMPro;
 
 public class Movement : MonoBehaviour
 {
+    #region Variables and Refences
+
     [Header("Input")]  
     float horizontalInput;
     float verticalInput;
@@ -34,6 +36,8 @@ public class Movement : MonoBehaviour
     public int dashes = 3;
     public float dashCoolDown;
     public bool canDash = true;
+
+    #endregion
 
     #region Start and Update
 

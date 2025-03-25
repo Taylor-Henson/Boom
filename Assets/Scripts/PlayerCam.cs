@@ -4,6 +4,8 @@ using UnityEngine;
 public class PlayerCam : MonoBehaviour
 {
 
+    #region Variables and References
+
     [Header("Sensitivities")]
     public float sensX;
     public float sensY;
@@ -12,6 +14,10 @@ public class PlayerCam : MonoBehaviour
     public Transform orientation;
     float xRotation;
     float yRotation;
+
+    #endregion
+
+    #region Start and Update
 
     void Start()
     {
@@ -22,9 +28,13 @@ public class PlayerCam : MonoBehaviour
 
     void Update()
     {
+        // Calling methods
         CameraMovement();
     }
 
+    #endregion
+
+    #region Camera Movement
     void CameraMovement()
     {
         // Creates a float from mouse inputs taken, multiplied by time and sensitivity
@@ -42,4 +52,7 @@ public class PlayerCam : MonoBehaviour
         transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
         orientation.rotation = Quaternion.Euler(0, yRotation, 0);
     }
+
+    #endregion
+
 }

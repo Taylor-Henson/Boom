@@ -5,6 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
+    #region Variables and References
+
     [Header("Singleton")]
     public static AudioManager instance;
 
@@ -20,6 +22,8 @@ public class AudioManager : MonoBehaviour
     [Header("Audioclips")]
     public AudioClip[] music;
     public AudioClip[] sfx;
+
+    #endregion
 
     #region Singleton
 

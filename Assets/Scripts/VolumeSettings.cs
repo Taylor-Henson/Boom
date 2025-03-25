@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class VolumeSettings : MonoBehaviour
 {
+    #region Variables and References
+
     [Header("Sliders")]
     // References
     public AudioMixer mixer;
@@ -13,6 +15,8 @@ public class VolumeSettings : MonoBehaviour
     // Channels
     public const string MIXER_MUSIC = "MusicVolume";
     public const string MIXER_SFX = "SFXVolume";
+
+    #endregion
 
     #region Changing Volume
 

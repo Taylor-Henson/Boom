@@ -3,19 +3,19 @@ using TMPro;
 
 public class Shotgun : MonoBehaviour
 {
+    #region Variables and References
+
     [Header("Raycast")]
     public Transform cameraPos;
     public LayerMask enemyLayer;
     public RaycastHit rayHit;
     public float spread;
 
-
     [Header("Particle Effects")]
     public Transform muzzlePoint;
     public ParticleSystem flash;
     public GameObject muzzleFlash;
     public GameObject hitParticle;
-
 
     [Header("Reloading")]
     public Animator animator;
@@ -35,6 +35,8 @@ public class Shotgun : MonoBehaviour
 
     [Header("Impulse")]
     public Rigidbody playerRigidbody;
+
+    #endregion
 
     #region Start and Update
 

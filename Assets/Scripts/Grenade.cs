@@ -5,6 +5,8 @@ using TMPro;
 
 public class Grenade : MonoBehaviour
 {
+    #region Variables and References
+
     [Header("Throwing and Rotation")]
     Vector3 direction;
     public Rigidbody rigidbody;
@@ -23,6 +25,8 @@ public class Grenade : MonoBehaviour
     [Header("Explosion")]
     public ParticleSystem explosion;
     public PlayerCombat playerCombatScript;
+
+    #endregion
 
     #region Start and Update
 
