@@ -474,7 +474,7 @@ Transform:
   m_GameObject: {fileID: 192004248}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.713, y: 0.67, z: 0}
+  m_LocalPosition: {x: -4.918, y: 0.67, z: -0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -4118,8 +4118,7 @@ MonoBehaviour:
     m_Bits: 128
   spread: 0.08
   muzzlePoint: {fileID: 192004249}
-  flash: {fileID: 1422276125060223872, guid: 8f7a29c7c6a07ba408c97403a1aa6052, type: 3}
-  muzzleFlash: {fileID: 2913428336680991741, guid: 8f7a29c7c6a07ba408c97403a1aa6052, type: 3}
+  flash: {fileID: 3245426950898940826, guid: a349a13f01e119f40a76262171e046e0, type: 3}
   hitParticle: {fileID: 4647162074554410840, guid: 0db45fd2395f33d4c859b1d033413e09, type: 3}
   animator: {fileID: 1457087232}
   ammoText: {fileID: 1155386009}

@@ -14,7 +14,6 @@ public class Shotgun : MonoBehaviour
     [Header("Particle Effects")]
     public Transform muzzlePoint;
     public ParticleSystem flash;
-    public GameObject muzzleFlash;
     public GameObject hitParticle;
 
     [Header("Reloading")]
@@ -104,8 +103,7 @@ public class Shotgun : MonoBehaviour
         animator.SetTrigger("Shoot");
 
         //Attempts at muzzle flash to be reattempted
-        flash.Play();
-        Instantiate(muzzleFlash, muzzlePoint.transform.position, Quaternion.identity);
+        //Instantiate(flash, muzzlePoint.transform.position, Quaternion.Euler(0, -90, 0));
 
         // Stops player from firing too often
         firing = true;
