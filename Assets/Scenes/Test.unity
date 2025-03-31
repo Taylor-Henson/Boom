@@ -806,14 +806,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 6c108917f32a61d4584a6f16aa9e389a, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2ca2aef03e02ae841a4a5732d58024d8, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -4116,7 +4116,7 @@ MonoBehaviour:
   enemyLayer:
     serializedVersion: 2
     m_Bits: 128
-  spread: 0.1
+  spread: 0.08
   muzzlePoint: {fileID: 192004249}
   flash: {fileID: 1422276125060223872, guid: 8f7a29c7c6a07ba408c97403a1aa6052, type: 3}
   muzzleFlash: {fileID: 2913428336680991741, guid: 8f7a29c7c6a07ba408c97403a1aa6052, type: 3}
@@ -6355,7 +6355,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   boneShape: 1
-  drawBones: 1
+  drawBones: 0
   drawTripods: 0
   boneSize: 1
   tripodSize: 1
@@ -7097,6 +7097,18 @@ PrefabInstance:
     - target: {fileID: 8735535016415178994, guid: 0849d6163714db54f8bd982865627631, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 1.078
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202825209389232007, guid: 0849d6163714db54f8bd982865627631, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202825209389232007, guid: 0849d6163714db54f8bd982865627631, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9202825209389232007, guid: 0849d6163714db54f8bd982865627631, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9202825209389232007, guid: 0849d6163714db54f8bd982865627631, type: 3}
       propertyPath: m_LocalPosition.x
