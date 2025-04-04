@@ -8,6 +8,8 @@ public class StationaryEnemy : MonoBehaviour
     public LayerMask playerMask;
     public LayerMask groundMask;
 
+    public GameObject rayOrigin;
+
     public bool inSight;
     public bool check;
 
@@ -26,6 +28,8 @@ public class StationaryEnemy : MonoBehaviour
         
     }
 
+    #region FieldOfView
+
     private void OnTriggerStay(Collider other)
     {
         // Checks if player is caught in trigger
@@ -36,7 +40,6 @@ public class StationaryEnemy : MonoBehaviour
 
             // Activates rig
             rig.weight = 1;
-            print(rig.weight);
         }
         else
         {
@@ -45,7 +48,6 @@ public class StationaryEnemy : MonoBehaviour
 
             // Deactivates rig
             rig.weight = 0;
-            print(rig.weight);
         }
 
         // If the player is in sight and a check hasnt been done
@@ -55,7 +57,7 @@ public class StationaryEnemy : MonoBehaviour
             LineOfSight(other.transform.position);
 
             // Waits some time before doing the method again
-            Invoke("ResetCheck", 2);
+            Invoke("ResetCheck", 1.5f);
             check = true;
         }
     }
@@ -65,11 +67,15 @@ public class StationaryEnemy : MonoBehaviour
         check = false;
     }
 
+    #endregion
+
+    #region LineOfSight
+
     void LineOfSight(Vector3 playerPosition)
     {
         // Raycast variables
-        Vector3 position = transform.position;
-        Vector3 direction = playerPosition - transform.position;
+        Vector3 position = rayOrigin.transform.position;
+        Vector3 direction = playerPosition - rayOrigin.transform.position;
         float distance = 20f;
 
         // Hits
@@ -79,12 +85,24 @@ public class StationaryEnemy : MonoBehaviour
         // Fires raycast at the player
         bool ground = Physics.Raycast(position, direction, out playerHit, distance, playerMask);
         bool player = Physics.Raycast(position, direction, out groundHit, distance, groundMask);
-        Debug.DrawRay(position, direction, Color.green);
+        // Debug.DrawRay(position, direction, Color.green);
 
         // Checks if player is closer than cover
         if (playerHit.distance < groundHit.distance)
         {
-            print("spotted");
+            //print("spot");
+
+            // Calls for method to fire at player
+            Shoot();
         }
+    }
+
+    #endregion
+
+    void Shoot()
+    {
+        // Play sound
+
+        // Instantiate bullet
     }
 }
