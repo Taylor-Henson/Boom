@@ -9,6 +9,7 @@ public class Shotgun : MonoBehaviour
     public Transform cameraPos;
     public LayerMask enemyLayer;
     public RaycastHit rayHit;
+    EnemyCombat enemyCombatScript;
     public float spread;
 
     [Header("Particle Effects")]
@@ -129,6 +130,15 @@ public class Shotgun : MonoBehaviour
         {
             // Instantiates a hit particle effect at the point of whatever is hit, in the forward direction of whatever it has hit
             Instantiate(hitParticle, rayHit.point, Quaternion.LookRotation(rayHit.normal));
+
+            if (rayHit.collider.CompareTag("Enemy"))
+            {
+                // References component 
+                enemyCombatScript = rayHit.collider.GetComponent<EnemyCombat>();
+
+                // Applies damage
+                enemyCombatScript.TakeDamage(20);
+            }
         }
     }
 

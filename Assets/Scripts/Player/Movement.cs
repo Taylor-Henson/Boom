@@ -30,6 +30,7 @@ public class Movement : MonoBehaviour
 
     [Header("Animations")]
     public Animator cameraAnim;
+    public bool moving;
 
     [Header("Dash")]
     public TextMeshProUGUI dashesText;
