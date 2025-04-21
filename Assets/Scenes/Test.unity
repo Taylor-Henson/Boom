@@ -3976,7 +3976,7 @@ MonoBehaviour:
     m_Bits: 128
   spread: 0.08
   muzzlePoint: {fileID: 192004249}
-  flash: {fileID: 3245426950898940826, guid: a349a13f01e119f40a76262171e046e0, type: 3}
+  flash: {fileID: 6346759675448695515, guid: fd56ee9fc06d06b4996942836d0d6c1f, type: 3}
   hitParticle: {fileID: 4647162074554410840, guid: 0db45fd2395f33d4c859b1d033413e09, type: 3}
   animator: {fileID: 1457087232}
   ammoText: {fileID: 1155386009}
