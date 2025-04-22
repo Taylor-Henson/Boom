@@ -11,6 +11,7 @@ public class StationaryEnemy : MonoBehaviour
     public bool check;
 
     [Header("Line Of Sight")]
+    GameObject player;
     public GameObject rayOrigin;
     public GameObject cameraPos;
     public LayerMask playerMask;
@@ -48,40 +49,46 @@ public class StationaryEnemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        // Calling methods
+        PlayerInSight();
     }
 
     #endregion
 
     #region FieldOfView
+    // Checks if the player is in or out of the collider
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         // Checks if player is caught in trigger
         if (other.gameObject.name == "PlayerHolder" && !enemyCombatScript.dead)
         {
             // Is in range
             inSight = true;
+            rig.weight = 1;
 
-            // Activates rig;
-            rig.enabled = true;
-            print("enable rig");
+            // Stores player
+            player  = other.gameObject;
         }
-        else
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.gameObject.name == "PlayerHolder" && !enemyCombatScript.dead)
         {
-            print("disable rig");
             // Is not in range
             inSight = false;
-
-            // Deactivates rig
-            rig.enabled = false;
+            rig.weight = 0;
         }
+    }
 
+    void PlayerInSight()
+    {
         // If the player is in sight and a check hasnt been done
         if (inSight && !check)
         {
             // Makes the enemy check if it has a line of sight
-            LineOfSight(other.transform.position);
+            LineOfSight(player.transform.position);
 
             // Waits some time before doing the method again
             Invoke("ResetCheck", 1f);

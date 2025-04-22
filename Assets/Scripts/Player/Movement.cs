@@ -129,6 +129,16 @@ public class Movement : MonoBehaviour
             // If not on ground
             rb.AddForce(moveDirection.normalized * moveSpeed * 5f * airMultiplier, ForceMode.Force);
         }
+
+        // Plays moving animation
+        if (moveDirection.magnitude >= 0.1 && grounded)
+        {
+            cameraAnim.SetBool("Moving", true);
+        }
+        else
+        {
+            cameraAnim.SetBool("Moving", false);
+        }
     }
 
     #endregion
@@ -231,10 +241,6 @@ public class Movement : MonoBehaviour
         // Adds one dash store
         dashes++;
     }
-
-    #endregion
-
-    #region Sound
 
     #endregion
 }

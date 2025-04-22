@@ -25,6 +25,7 @@ public class Grenade : MonoBehaviour
     [Header("Explosion")]
     public ParticleSystem explosion;
     public PlayerCombat playerCombatScript;
+    EnemyCombat enemyCombatScript;
 
     #endregion
 
@@ -87,10 +88,23 @@ public class Grenade : MonoBehaviour
         // Plays explosion sound effect
         AudioManager.instance.PlaySFX(4);
 
-        // Checks if an enemy is caught in the explosion
-        if (Physics.CheckSphere(transform.position, radius, enemy))
+        // Checks if an enemy is caught in the explosion and stores them in an array
+        Collider[] enemies = Physics.OverlapSphere(transform.position, radius);
+
+        // Checks if any were caught
+        if (enemies.Length > 0)
         {
-            // Make enemy take damage
+            // Applies next code to every Collider caught in the OverlapSphere, and gives it a name
+            foreach (Collider collider in enemies)
+            {
+                // Checks if it is an enemy
+                if (collider.gameObject.CompareTag("Enemy"))
+                {
+                    // References that enemies EnemyCombat Script and makes it take damage
+                    enemyCombatScript = collider.gameObject.GetComponent<EnemyCombat>();
+                    enemyCombatScript.TakeDamage(100);
+                }
+            }
         }
     }
 
