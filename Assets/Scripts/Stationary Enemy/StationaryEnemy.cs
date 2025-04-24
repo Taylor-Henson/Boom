@@ -12,8 +12,8 @@ public class StationaryEnemy : MonoBehaviour
 
     [Header("Line Of Sight")]
     GameObject player;
+    GameObject cameraPos;
     public GameObject rayOrigin;
-    public GameObject cameraPos;
     public LayerMask playerMask;
     public LayerMask groundMask;
 
@@ -38,6 +38,7 @@ public class StationaryEnemy : MonoBehaviour
     void Start()
     {
         anim.applyRootMotion = false;
+
         // References
         rig = gameObject.GetComponentInChildren<Rig>();
         enemyCombatScript = gameObject.GetComponent<EnemyCombat>();
@@ -107,6 +108,8 @@ public class StationaryEnemy : MonoBehaviour
 
     void LineOfSight(Vector3 playerPosition)
     {
+        cameraPos = GameObject.Find("CameraPos");
+
         // Raycast variables
         Vector3 position = rayOrigin.transform.position;
         Vector3 direction = cameraPos.transform.position - position;

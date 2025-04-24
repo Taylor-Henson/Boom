@@ -6938,7 +6938,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1425083106127601142}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
@@ -9595,7 +9595,7 @@ Transform:
   m_GameObject: {fileID: 5236290850770143748}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.9999869, z: -0, w: -0.0051214797}
-  m_LocalPosition: {x: 0, y: 0, z: 4.157}
+  m_LocalPosition: {x: 1.95, y: 0, z: 4.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -10839,7 +10839,6 @@ MonoBehaviour:
   inSight: 0
   check: 0
   rayOrigin: {fileID: 801056627}
-  cameraPos: {fileID: 469848383}
   playerMask:
     serializedVersion: 2
     m_Bits: 256
