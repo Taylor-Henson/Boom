@@ -1,3 +1,4 @@
+using System.Collections;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
@@ -11,7 +12,7 @@ public class EnemyCombat : MonoBehaviour
     public float health;
 
     [Header("Death")]
-    Rig rig;
+    public Rig rig;
     public Animator animator;
     public GameObject shotgun;
     public bool dead = false;
@@ -31,7 +32,7 @@ public class EnemyCombat : MonoBehaviour
 
     #endregion
 
-    #region Taking Damage and Dying
+    #region Taking Damage
 
     // Takes in the amount of damage that is taken
     public void TakeDamage(float damage)
@@ -43,11 +44,15 @@ public class EnemyCombat : MonoBehaviour
         if (health <= 0)
         {
             // Makes enemy die if so
-            Die();
+            StartCoroutine(Die());
         }
     }
 
-    void Die()
+    #endregion
+
+    #region Dying
+
+    IEnumerator Die()
     {
         if (!dead)
         {
@@ -59,10 +64,22 @@ public class EnemyCombat : MonoBehaviour
             animator.SetBool("Dead", true);
         }
 
+        // Disables rig
+        rig.weight = 0;
+
         // Disables shotgun
         if (shotgun != null)
         {
             shotgun.SetActive(false);
+        }
+
+        // IEnumerator waiting
+        yield return new WaitForSeconds(5);
+
+        if (gameObject != null)
+        {
+            // Destroys Enemy
+            Destroy(gameObject);
         }
     }
 
