@@ -1,3 +1,4 @@
+using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
@@ -9,6 +10,9 @@ public class StationaryEnemy : MonoBehaviour
     Rig rig;
     public bool inSight;
     public bool check;
+    Transform spine;
+    Transform upperChest;
+    Transform rightShoulder;
 
     [Header("Line Of Sight")]
     GameObject player;
@@ -37,14 +41,16 @@ public class StationaryEnemy : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        anim.applyRootMotion = false;
-
         // References
         rig = gameObject.GetComponentInChildren<Rig>();
         enemyCombatScript = gameObject.GetComponent<EnemyCombat>();
 
+        spine = transform.Find("Rig Setup/Spine");
+        upperChest = transform.Find("Rig Setup/UpperChest");
+        rightShoulder = transform.Find("Rig Setup/RightShoulder");
+
         // Sets health to 100
-        health = maxHealth;  
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -70,6 +76,27 @@ public class StationaryEnemy : MonoBehaviour
 
             // Stores player
             player  = other.gameObject;
+
+            // Makes an array to store transforms of objects, as well as the weighting of that object
+            WeightedTransformArray sources = new WeightedTransformArray();
+            sources.Add(new WeightedTransform(player.transform, 1));
+
+            // Gets the MAC component and its data as variables, sets the data to the array object, then assigns that data to the component
+            // This is done as changing the data alone without reassigning will not change the constraint itself
+            var spineConstraint = spine.GetComponent<MultiAimConstraint>();
+            var spineData = spineConstraint.data;
+            spineData.sourceObjects = sources;
+            spineConstraint.data = spineData;
+
+            var upperChestConstraint = upperChest.GetComponent<MultiAimConstraint>();
+            var upperChestData = upperChestConstraint.data;
+            upperChestData.sourceObjects = sources;
+            upperChestConstraint.data = upperChestData;
+
+            var rightShoulderConstraint = rightShoulder.GetComponent<MultiAimConstraint>();
+            var rightShoulderData = rightShoulderConstraint.data;
+            rightShoulderData.sourceObjects = sources;
+            rightShoulderConstraint.data = rightShoulderData;
         }
     }
 
