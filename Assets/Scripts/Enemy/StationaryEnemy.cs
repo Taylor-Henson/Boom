@@ -73,7 +73,7 @@ public class StationaryEnemy : MonoBehaviour
             // Is in range
             inSight = true;
             rig.weight = 1;
-
+            
             // Stores player
             player  = other.gameObject;
 
