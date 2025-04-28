@@ -24,7 +24,7 @@ public class EnemyCombat : MonoBehaviour
     void Start()
     {
         // References
-        rig = transform.Find("Rig Setup").GetComponent<Rig>();
+        rig = transform.Find("Rig").GetComponent<Rig>();
 
         // Sets health to the maximum health at the beginning of the game
         health = maxHealth;

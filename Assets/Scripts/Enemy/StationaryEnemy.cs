@@ -13,6 +13,8 @@ public class StationaryEnemy : MonoBehaviour
     Transform spine;
     Transform upperChest;
     Transform rightShoulder;
+    Transform child;
+    Transform ikPoint;
 
     [Header("Line Of Sight")]
     GameObject player;
@@ -44,10 +46,9 @@ public class StationaryEnemy : MonoBehaviour
         // References
         rig = gameObject.GetComponentInChildren<Rig>();
         enemyCombatScript = gameObject.GetComponent<EnemyCombat>();
-
-        spine = transform.Find("Rig Setup/Spine");
-        upperChest = transform.Find("Rig Setup/UpperChest");
-        rightShoulder = transform.Find("Rig Setup/RightShoulder");
+        spine = transform.Find("Rig/Spine");
+        upperChest = transform.Find("Rig/UpperChest");
+        rightShoulder = transform.Find("Rig/RightShoulder");
 
         // Sets health to 100
         health = maxHealth;
@@ -58,6 +59,15 @@ public class StationaryEnemy : MonoBehaviour
     {
         // Calling methods
         PlayerInSight();
+    }
+
+    private void LateUpdate()
+    {
+        RigBuilder rigBuilder = GetComponent<RigBuilder>();
+        if (rigBuilder != null)
+        {
+            rigBuilder.Build(); 
+        }
     }
 
     #endregion
@@ -75,11 +85,15 @@ public class StationaryEnemy : MonoBehaviour
             rig.weight = 1;
             
             // Stores player
-            player  = other.gameObject;
+            player = other.gameObject;
+
+            // Stores player IK point
+            child = player.transform.GetChild(0);
+            ikPoint = child.transform.GetChild(3);
 
             // Makes an array to store transforms of objects, as well as the weighting of that object
             WeightedTransformArray sources = new WeightedTransformArray();
-            sources.Add(new WeightedTransform(player.transform, 1));
+            sources.Add(new WeightedTransform(ikPoint.transform, 1));
 
             // Gets the MAC component and its data as variables, sets the data to the array object, then assigns that data to the component
             // This is done as changing the data alone without reassigning will not change the constraint itself
