@@ -9,16 +9,17 @@ public class Grenade : MonoBehaviour
 
     [Header("Throwing and Rotation")]
     Vector3 direction;
-    public Rigidbody rigidbody;
+    public Rigidbody rb;
     public float rotationSpeed;
 
     [Header("Boosting")]
-    Transform camera;
-    Transform playerPoint;
+    Transform cam;
+    GameObject player; 
+    Vector3 playerPosition;
     Rigidbody playerRb;
 
     [Header("Checksphere")]
-    public LayerMask player;
+    public LayerMask playerMask;
     public LayerMask enemy;
     public float radius;
 
@@ -34,10 +35,7 @@ public class Grenade : MonoBehaviour
     void Start()
     {
         // References
-        camera = GameObject.Find("Camera").GetComponent<Transform>();
-        playerPoint = GameObject.Find("GrenadeCheckPoint").GetComponent<Transform>();
-        playerRb = GameObject.Find("PlayerHolder").GetComponent<Rigidbody>();
-        playerCombatScript = GameObject.Find("PlayerHolder").GetComponent<PlayerCombat>();
+        cam = GameObject.Find("Camera").GetComponent<Transform>();
 
         // Calling methods
         Spawn();
@@ -52,10 +50,10 @@ public class Grenade : MonoBehaviour
         // Creates a direction based off of the cameras forward transform with a small boost up to simulate throwing
         float offset = 0.5f;
         float force = 10;
-        direction = camera.transform.forward + new Vector3(0, offset, 0);
+        direction = cam.transform.forward + new Vector3(0, offset, 0);
 
         // Applies that direction in a force
-        rigidbody.AddForce(direction * force, ForceMode.Impulse);
+        rb.AddForce(direction * force, ForceMode.Impulse);
 
         // Randomizes how much rotation will happen on each axis while being thrown
         float x = Random.Range(-90, 90) * rotationSpeed * Time.deltaTime;
@@ -63,11 +61,10 @@ public class Grenade : MonoBehaviour
         float z = Random.Range(-90, 90) * rotationSpeed * Time.deltaTime;
 
         // Applies the rotations created across time as a Torque
-        rigidbody.AddTorque(x, y, z);
+        rb.AddTorque(x, y, z);
 
         // Sets timer before explosion
         Invoke("Explode", 3);
-        Invoke("Boost", 3);
 
         // Plays throwing sound effect
         AudioManager.instance.PlaySFX(5);
@@ -89,13 +86,13 @@ public class Grenade : MonoBehaviour
         AudioManager.instance.PlaySFX(4);
 
         // Checks if an enemy is caught in the explosion and stores them in an array
-        Collider[] enemies = Physics.OverlapSphere(transform.position, radius);
+        Collider[] hit = Physics.OverlapSphere(transform.position, radius);
 
         // Checks if any were caught
-        if (enemies.Length > 0)
+        if (hit.Length > 0)
         {
             // Applies next code to every Collider caught in the OverlapSphere, and gives it a name
-            foreach (Collider collider in enemies)
+            foreach (Collider collider in hit)
             {
                 // Checks if it is an enemy
                 if (collider.gameObject.CompareTag("Enemy"))
@@ -104,14 +101,23 @@ public class Grenade : MonoBehaviour
                     enemyCombatScript = collider.gameObject.GetComponent<EnemyCombat>();
                     enemyCombatScript.TakeDamage(100);
                 }
+                else if (collider.gameObject.CompareTag("Player"))
+                {
+
+                    player = collider.gameObject;
+                    playerPosition = player.transform.position;
+                    playerRb = player.GetComponent<Rigidbody>();
+                    playerCombatScript = player.GetComponent<PlayerCombat>();
+
+                    Boost();
+                }
             }
         }
     }
 
     void Boost()
     {
-        // Finds player's and its own position
-        Vector3 playerPosition = playerPoint.transform.position;
+        // Finds position
         Vector3 position = transform.position;
 
         // Uses them to calculate the direction between the two gameObjects and adds less of a weighting to the Y
@@ -121,18 +127,14 @@ public class Grenade : MonoBehaviour
 
         // Creates a direction to send the player using the directions created
         Vector3 direction = new Vector3(xDirection, yDirection, zDirection);
+    
+        // Applies force in the direction calculated
+        playerRb.AddForce(direction * 20, ForceMode.Impulse);
 
-        // Checks if player is caught in explosion
-        if (Physics.CheckSphere(transform.position, radius, player))
-        {
-            // Applies force in the direction calculated
-            playerRb.AddForce(direction * 20, ForceMode.Impulse);
-
-            // Makes player take damage
-            playerCombatScript.TakeDamage(10);
-        }
+        // Makes player take damage
+        playerCombatScript.TakeDamage(10);
+        
     }
 
     #endregion
-
 }

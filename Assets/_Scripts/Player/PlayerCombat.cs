@@ -7,8 +7,8 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Health")]
     public TextMeshProUGUI healthtext;
-    public float maxHealth = 100;
-    public float health;
+    public int health;
+    public int maxHealth = 100;
 
     #endregion
 
@@ -31,7 +31,7 @@ public class PlayerCombat : MonoBehaviour
     #region Taking Damage and Dying
 
     // Takes in the amount of damage that is taken
-    public void TakeDamage(float damage)
+    public void TakeDamage(int damage)
     {
         // Takes that damage away from the health
         health -= damage;
