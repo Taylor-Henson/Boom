@@ -1,6 +1,7 @@
 using Unity.VisualScripting.Dependencies.NCalc;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.Rendering;
 
 public class StationaryEnemy : MonoBehaviour
 {
@@ -17,7 +18,7 @@ public class StationaryEnemy : MonoBehaviour
     Transform ikPoint;
 
     [Header("Line Of Sight")]
-    GameObject player;
+    public GameObject player;
     GameObject cameraPos;
     public GameObject rayOrigin;
     public LayerMask playerMask;
@@ -58,6 +59,7 @@ public class StationaryEnemy : MonoBehaviour
     void Update()
     {
         // Calling methods
+        FOV();
         PlayerInSight();
     }
 
@@ -75,18 +77,11 @@ public class StationaryEnemy : MonoBehaviour
     #region FieldOfView
     // Checks if the player is in or out of the collider
 
-    private void OnTriggerEnter(Collider other)
+    void FOV()
     {
         // Checks if player is caught in trigger
-        if (other.gameObject.name == "PlayerHolder" && !enemyCombatScript.dead)
+        if (inSight && !enemyCombatScript.dead)
         {
-            // Is in range
-            inSight = true;
-            rig.weight = 1;
-            
-            // Stores player
-            player = other.gameObject;
-
             // Stores player IK point
             child = player.transform.GetChild(0);
             ikPoint = child.transform.GetChild(3);
@@ -111,16 +106,6 @@ public class StationaryEnemy : MonoBehaviour
             var rightShoulderData = rightShoulderConstraint.data;
             rightShoulderData.sourceObjects = sources;
             rightShoulderConstraint.data = rightShoulderData;
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.name == "PlayerHolder" && !enemyCombatScript.dead)
-        {
-            // Is not in range
-            inSight = false;
-            rig.weight = 0;
         }
     }
 
