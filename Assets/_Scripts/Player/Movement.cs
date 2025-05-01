@@ -223,7 +223,7 @@ public class Movement : MonoBehaviour
     #region Dash
     void Dash()
     {
-        int force = 20;
+        int force = 15;
 
         // Applies the dash force
         rb.AddForce(moveDirection.normalized * force, ForceMode.Impulse);

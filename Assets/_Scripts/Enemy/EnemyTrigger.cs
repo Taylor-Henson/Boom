@@ -12,9 +12,9 @@ public class EnemyTrigger : MonoBehaviour
         if (other.gameObject.name == "PlayerHolder" && !enemyCombatScript.dead)
         {
             rig.weight = 1;
-            print(rig.weight);
             stationaryEnemyScript.inSight = true;
             stationaryEnemyScript.player = other.gameObject;
+            enemyCombatScript.playerCombatScript = other.gameObject.GetComponent<PlayerCombat>();
         }
 
     }
@@ -24,7 +24,6 @@ public class EnemyTrigger : MonoBehaviour
         if (other.gameObject.name == "PlayerHolder" && !enemyCombatScript.dead)
         {
             rig.weight = 0;
-            print(rig.weight);
             stationaryEnemyScript.inSight = false;
         }
     }

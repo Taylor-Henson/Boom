@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 7220986072346051313}
   - component: {fileID: 7220986072343151315}
   - component: {fileID: 7220986072344281107}
+  - component: {fileID: 1366729010729086010}
   m_Layer: 3
   m_Name: Tunnel Ceiling001
   m_TagString: Untagged
@@ -86,6 +87,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1366729010729086010
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222289}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300004, guid: 4ce6b0c7f72eca64281331f29fa951bf, type: 3}
 --- !u!1 &7220986072346222291
 GameObject:
   m_ObjectHideFlags: 0
@@ -97,6 +120,7 @@ GameObject:
   - component: {fileID: 7220986072346051315}
   - component: {fileID: 7220986072343151317}
   - component: {fileID: 7220986072344281109}
+  - component: {fileID: 834234856770901595}
   m_Layer: 3
   m_Name: Tunnel Beams001
   m_TagString: Untagged
@@ -172,6 +196,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &834234856770901595
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222291}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300006, guid: 4ce6b0c7f72eca64281331f29fa951bf, type: 3}
 --- !u!1 &7220986072346222293
 GameObject:
   m_ObjectHideFlags: 0
@@ -183,6 +229,7 @@ GameObject:
   - component: {fileID: 7220986072346051317}
   - component: {fileID: 7220986072343151319}
   - component: {fileID: 7220986072344281111}
+  - component: {fileID: 2378827980541656386}
   m_Layer: 3
   m_Name: Light001
   m_TagString: Untagged
@@ -258,6 +305,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &2378827980541656386
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222293}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300010, guid: 4ce6b0c7f72eca64281331f29fa951bf, type: 3}
 --- !u!1 &7220986072346222295
 GameObject:
   m_ObjectHideFlags: 0
@@ -267,6 +336,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7220986072346051319}
+  - component: {fileID: 7481729457812509923}
   m_Layer: 3
   m_Name: Corridor Corner Lights
   m_TagString: Untagged
@@ -295,6 +365,28 @@ Transform:
   - {fileID: 7220986072346051323}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &7481729457812509923
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222295}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &7220986072346222299
 GameObject:
   m_ObjectHideFlags: 0
@@ -306,6 +398,7 @@ GameObject:
   - component: {fileID: 7220986072346051323}
   - component: {fileID: 7220986072343151325}
   - component: {fileID: 7220986072344281117}
+  - component: {fileID: 6455093223519548645}
   m_Layer: 3
   m_Name: Tunnel Walls001
   m_TagString: Untagged
@@ -381,6 +474,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &6455093223519548645
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222299}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: 4ce6b0c7f72eca64281331f29fa951bf, type: 3}
 --- !u!1 &7220986072346222301
 GameObject:
   m_ObjectHideFlags: 0
@@ -392,6 +507,7 @@ GameObject:
   - component: {fileID: 7220986072346051325}
   - component: {fileID: 7220986072343151327}
   - component: {fileID: 7220986072344281119}
+  - component: {fileID: 8533673219291466719}
   m_Layer: 3
   m_Name: Tunnel Piipes001
   m_TagString: Untagged
@@ -467,6 +583,28 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &8533673219291466719
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222301}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300008, guid: 4ce6b0c7f72eca64281331f29fa951bf, type: 3}
 --- !u!1 &7220986072346222303
 GameObject:
   m_ObjectHideFlags: 0
@@ -478,6 +616,7 @@ GameObject:
   - component: {fileID: 7220986072346051327}
   - component: {fileID: 7220986072343151313}
   - component: {fileID: 7220986072344281105}
+  - component: {fileID: 5862888741469833345}
   m_Layer: 3
   m_Name: Tunnel Floor001
   m_TagString: Untagged
@@ -553,3 +692,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &5862888741469833345
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7220986072346222303}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300002, guid: 4ce6b0c7f72eca64281331f29fa951bf, type: 3}

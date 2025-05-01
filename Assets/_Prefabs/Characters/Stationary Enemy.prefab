@@ -65,7 +65,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 1.95, y: 0, z: 4.14}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2, y: 1.2, z: 1.2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5249366357748462593}
@@ -274,10 +274,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 100
   health: 0
-  rig: {fileID: 0}
+  rig: {fileID: 4153090075787463762}
+  playerCombatScript: {fileID: 0}
   animator: {fileID: 2118729688651249277}
   shotgun: {fileID: 8558805229662506858}
   dead: 0
+  siphon: -50
 --- !u!114 &2043979401139174606
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1300,7 +1302,7 @@ GameObject:
   - component: {fileID: 5069988063811105080}
   - component: {fileID: 4642058877102769606}
   - component: {fileID: 3917848121199893940}
-  m_Layer: 7
+  m_Layer: 9
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -8,6 +8,7 @@ public class Shotgun : MonoBehaviour
     [Header("Raycast")]
     public Transform cameraPos;
     public LayerMask enemyLayer;
+    public LayerMask triggerMask;
     public RaycastHit rayHit;
     EnemyCombat enemyCombatScript;
     public float spread;
@@ -127,7 +128,7 @@ public class Shotgun : MonoBehaviour
         Vector3 direction = cameraPos.forward + new Vector3(x, y, 0);
 
         // Raycast from camera position, in the direction calculated, and gets whatever it hits
-        if (Physics.Raycast(cameraPos.transform.position, direction, out rayHit, 50f))
+        if (Physics.Raycast(cameraPos.transform.position, direction, out rayHit, 50f, ~triggerMask))
         {
             // Instantiates a hit particle effect at the point of whatever is hit, in the forward direction of whatever it has hit
             Instantiate(hitParticle, rayHit.point, Quaternion.LookRotation(rayHit.normal));

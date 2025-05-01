@@ -8,14 +8,18 @@ public class EnemyCombat : MonoBehaviour
     #region Variables and References
 
     [Header("Health")]
-    public float maxHealth = 100;
+    public float maxHealth = 75;
     public float health;
 
     [Header("Death")]
     public Rig rig;
+    public PlayerCombat playerCombatScript;
     public Animator animator;
     public GameObject shotgun;
     public bool dead = false;
+
+    [Header("Siphon")]
+    public int siphon = -50;
 
     #endregion
 
@@ -45,6 +49,7 @@ public class EnemyCombat : MonoBehaviour
         {
             // Makes enemy die if so
             StartCoroutine(Die());
+            Siphon();
         }
     }
 
@@ -81,6 +86,16 @@ public class EnemyCombat : MonoBehaviour
             // Destroys Enemy
             Destroy(gameObject);
         }
+    }
+
+    #endregion
+
+    #region Siphon
+
+    void Siphon()
+    {
+        // Gives player health
+        playerCombatScript.TakeDamage(siphon);
     }
 
     #endregion

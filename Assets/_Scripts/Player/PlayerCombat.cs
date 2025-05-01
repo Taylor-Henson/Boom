@@ -42,6 +42,13 @@ public class PlayerCombat : MonoBehaviour
             // Makes player die if so
             Die();
         }
+        else if (health >= maxHealth)
+        {
+            // Caps health at 100
+            health = maxHealth = 100;
+        }
+
+        
     }
 
     void Die()
@@ -50,5 +57,4 @@ public class PlayerCombat : MonoBehaviour
     }
 
     #endregion
-
 }
