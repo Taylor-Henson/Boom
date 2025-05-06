@@ -208,6 +208,10 @@ public class Shotgun : MonoBehaviour
         Vector3 direction = -cameraPos.transform.forward;
         int force = 10;
 
+
+        // Resets velocity
+        playerRigidbody.angularVelocity = new Vector3(0f, 0f, 0f);
+
         // Applies a impulse in that direction
         playerRigidbody.AddForce(direction * force, ForceMode.Impulse);
     }

@@ -19,7 +19,7 @@ public class EnemyCombat : MonoBehaviour
     public bool dead = false;
 
     [Header("Siphon")]
-    public int siphon = -30;
+    public int siphon = -15;
 
     #endregion
 

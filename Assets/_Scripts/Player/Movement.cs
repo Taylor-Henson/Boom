@@ -225,6 +225,9 @@ public class Movement : MonoBehaviour
     {
         int force = 15;
 
+        // Reset velocity
+        rb.angularVelocity = new Vector3(0f, rb.angularVelocity.y, 0f);
+
         // Applies the dash force
         rb.AddForce(moveDirection.normalized * force, ForceMode.Impulse);
 
