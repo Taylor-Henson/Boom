@@ -10,7 +10,7 @@ public class Bullet : MonoBehaviour
 
     [Header("Hit")]
     PlayerCombat playerCombatScript;
-    int bulletDamage = 5;
+    int bulletDamage = 8;
 
     #endregion
 
