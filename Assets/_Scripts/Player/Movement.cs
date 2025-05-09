@@ -55,6 +55,7 @@ public class Movement : MonoBehaviour
     {
         // Calling Methods
         MyInput();
+        MovePlayer();
         GroundCheck();
         SpeedControl();
         Animations();
@@ -71,12 +72,6 @@ public class Movement : MonoBehaviour
         {
             canDash = true;
         }
-    }
-
-    private void FixedUpdate()
-    {
-        // Calling Methods
-        MovePlayer();
     }
 
     #endregion
