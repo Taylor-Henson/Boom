@@ -19,6 +19,6 @@ public class FpsCounter : MonoBehaviour
         fps = (int) (1/Time.unscaledDeltaTime);
 
         // Sets the text to the fps by converting it to a string
-        fpsText.text = fps.ToString();
+        fpsText.text = "FPS: " + fps.ToString();
     }
 }
