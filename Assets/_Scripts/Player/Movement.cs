@@ -11,11 +11,11 @@ public class Movement : MonoBehaviour
     float verticalInput;
 
     [Header("Movement")]
-    Vector3 moveDirection;
     Rigidbody rb;
     public Transform orientation;
-    public float moveSpeed;
+    Vector3 moveDirection;
     public float groundDrag;
+    float moveSpeed = 60;
 
     [Header("Jumping")]
     public float jumpForce;
@@ -30,7 +30,6 @@ public class Movement : MonoBehaviour
 
     [Header("Animations")]
     public Animator cameraAnim;
-    public bool moving;
 
     [Header("Dash")]
     public TextMeshProUGUI dashesText;
@@ -53,9 +52,8 @@ public class Movement : MonoBehaviour
 
     void Update()
     {
-        // Calling Methods
+        // Calling methods
         MyInput();
-        MovePlayer();
         GroundCheck();
         SpeedControl();
         Animations();
@@ -74,6 +72,12 @@ public class Movement : MonoBehaviour
         }
     }
 
+    private void FixedUpdate()
+    {
+        // Calling Methods
+        MovePlayer();
+    }
+
     #endregion
 
     #region Input
@@ -83,6 +87,10 @@ public class Movement : MonoBehaviour
         // Movement Input
         horizontalInput = Input.GetAxisRaw("Horizontal");
         verticalInput = Input.GetAxisRaw("Vertical");
+
+        // Calculates the force in each direction the player can be moving in using input combines with directions
+        // This is called from an update based method to sync with the orientation being calculated based on each frame
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // Jumping Input
         if (Input.GetButton("Jump") && grounded && readyToJump)
@@ -109,20 +117,17 @@ public class Movement : MonoBehaviour
 
     void MovePlayer()
     {
-
-        // Calculates the direction the player should move by taking local axis and multiplying them by the values found from inputs
-        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
-
         // Applies a force on the player in the direction found before
+        // Force is applied in a FixedUpdate based method so it is applied evenly, not dependant on frame rate
         if (grounded)
         {
             // If on ground
-            rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Force);
         }
         else if (!grounded)
         {
             // If not on ground
-            rb.AddForce(moveDirection.normalized * moveSpeed * 5f * airMultiplier, ForceMode.Force);
+            rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
         }
 
         // Plays moving animation
@@ -218,7 +223,7 @@ public class Movement : MonoBehaviour
     #region Dash
     void Dash()
     {
-        int force = 15;
+        int force = 10;
 
         // Reset velocity
         rb.angularVelocity = new Vector3(0f, rb.angularVelocity.y, 0f);

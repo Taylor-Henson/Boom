@@ -21,7 +21,7 @@ public class Timer : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
+    { 
         if (time > 0 && playing)
         {   
             // Counts down and displays
