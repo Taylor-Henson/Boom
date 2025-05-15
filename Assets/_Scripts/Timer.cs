@@ -6,6 +6,7 @@ public class Timer : MonoBehaviour
 {
     [Header("Timer")]
     public TextMeshProUGUI timerText;
+    public TextMeshProUGUI menuTimerText;
     public float time;
     public float maxTime;
     public bool playing = false;
@@ -13,9 +14,11 @@ public class Timer : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+
         // Starts the timer
         time = maxTime;
         timerText.text = time + "/" + maxTime;
+        menuTimerText.text = "Time = " + time + "/" + maxTime;
         playing = true;
     }
 
@@ -28,6 +31,7 @@ public class Timer : MonoBehaviour
             time -= Time.deltaTime;
             float roundedTime = Mathf.Round(time * 100f) / 100f;
             timerText.text = roundedTime + "/" + maxTime;
+            menuTimerText.text = "Time = " + roundedTime + "/" + maxTime;
         }
         else
         {

@@ -93,7 +93,7 @@ public class Movement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // Jumping Input
-        if (Input.GetButton("Jump") && grounded && readyToJump)
+        if (Input.GetButton("Jump") && grounded && readyToJump && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true)
         {
             // Calls jumping method
             Jump();
@@ -104,7 +104,7 @@ public class Movement : MonoBehaviour
         }
 
         // Dash input
-        if (Input.GetKeyDown("c") && canDash)
+        if (Input.GetKeyDown("c") && canDash && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true)
         {
             // Calls the dash method
             Dash();

@@ -6,11 +6,14 @@ public class MainMenu : MonoBehaviour
 {
     public Slider sliderX;
     public Slider sliderY;
+    public Toggle fpsToggle;
+
+    public int toggleInt;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        // Checks for Y key, if so gets the pref, else sets the pref to default
+        // Y SENS KEY
         if (PlayerPrefs.HasKey("SensXPrefs"))
         {
             PlayerPrefs.GetFloat("SensXPrefs");
@@ -20,7 +23,7 @@ public class MainMenu : MonoBehaviour
             PlayerPrefs.SetFloat("SensXPrefs", 0.5f);
         }
 
-        // Checks for  X key, if so gets the pref, else sets the pref to default
+        // X SENS KEY
         if (PlayerPrefs.HasKey("SensYPrefs"))
         {
             PlayerPrefs.GetFloat("SensYPrefs");
@@ -29,6 +32,17 @@ public class MainMenu : MonoBehaviour
         {
             PlayerPrefs.SetFloat("SensYPrefs", 0.5f);
         }
+
+        // FPS TOGGLE KEY
+        if (PlayerPrefs.HasKey("FPSTogglePrefs"))
+        {
+            toggleInt = PlayerPrefs.GetInt("FPSTogglePrefs");
+        }
+        else
+        {
+            PlayerPrefs.SetInt("FPSTogglePrefs", 0);
+            toggleInt = PlayerPrefs.GetInt("FPSToggleInt");
+        }
     }
 
     private void Start()
@@ -36,6 +50,16 @@ public class MainMenu : MonoBehaviour
         // Initially sets sliders to pref value
         sliderX.value = PlayerPrefs.GetFloat("SensXPrefs");
         sliderY.value = PlayerPrefs.GetFloat("SensYPrefs");
+
+        // Sets toggle value at start
+        if (toggleInt == 1)
+        {
+            fpsToggle.isOn = true;
+        }
+        else
+        {
+            fpsToggle.isOn = false;
+        }
     }
 
     public void OnSensXChanged(float value)
@@ -48,5 +72,19 @@ public class MainMenu : MonoBehaviour
     {
         // Sets pref to value on change
         PlayerPrefs.SetFloat("SensYPrefs", value);
+    }
+
+    public void OnToggleChanged(bool value)
+    {
+        if (value)
+        {
+            toggleInt = 1;
+        }
+        else
+        {
+            toggleInt = 0;
+        }
+
+        PlayerPrefs.SetInt("FPSTogglePrefs", toggleInt);
     }
 }

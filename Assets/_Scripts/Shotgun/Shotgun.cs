@@ -150,7 +150,7 @@ public class Shotgun : MonoBehaviour
     void CanPlayerShoot()
     {
         // Checks if any grenades can be thrown
-        if (grenades <= 0)
+        if (grenades <= 0 && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true)
         {
             canUseGrenade = false;
         }
@@ -160,7 +160,7 @@ public class Shotgun : MonoBehaviour
         }
 
         // Decided if the player can fire yet
-        if (!firing && !reloading && bulletsLeft > 0)
+        if (!firing && !reloading && bulletsLeft > 0 && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true)
         {
             // Player can shoot
             canShoot = true;
