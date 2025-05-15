@@ -46,8 +46,8 @@ public class VolumeSettings : MonoBehaviour
     private void Start()
     {
         // Sets music Slider value to stored playerprefs key, if not set to 100%
-        musicSlider.value = PlayerPrefs.GetFloat(AudioManager.MUSIC_KEY, 1f);
-        sfxSlider.value = PlayerPrefs.GetFloat(AudioManager.SFX_KEY, 1f);
+        musicSlider.value = PlayerPrefs.GetFloat(AudioManager.MUSIC_KEY, 0.5f);
+        sfxSlider.value = PlayerPrefs.GetFloat(AudioManager.SFX_KEY, 0.5f);
     }
 
     private void OnDisable()

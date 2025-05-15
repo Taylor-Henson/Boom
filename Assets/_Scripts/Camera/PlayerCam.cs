@@ -24,6 +24,10 @@ public class PlayerCam : MonoBehaviour
         // Locking and hiding the cursor
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        // Sets sensitivities to prefs since they go across scenes
+        sensX = PlayerPrefs.GetFloat("SensXPrefs") * 400;
+        sensY = PlayerPrefs.GetFloat("SensYPrefs") * 400;
     }
 
     void Update()
