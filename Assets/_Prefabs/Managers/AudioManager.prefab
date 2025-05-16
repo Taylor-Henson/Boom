@@ -49,7 +49,11 @@ MonoBehaviour:
   mixer: {fileID: 24100000, guid: c9fab7165b2084a4b963271f705494cf, type: 2}
   musicSource: {fileID: 4389706112277040886}
   sfxSource: {fileID: 8793482750250002115}
-  music: []
+  music:
+  - {fileID: 8300000, guid: 42d48c608fc7148e488acbbabaa00d11, type: 3}
+  - {fileID: 8300000, guid: d11362419cbc741d5990f88f3d04c7f5, type: 3}
+  - {fileID: 8300000, guid: 5401a03c61ecb4a3aacab1e5abd8b8a2, type: 3}
+  - {fileID: 8300000, guid: e42906ddea4ed4202a7911ae2efdb895, type: 3}
   sfx:
   - {fileID: 8300000, guid: 243791c628ea02149a0c4d8a58b8e476, type: 3}
   - {fileID: 8300000, guid: 801ef9e3fa2c8fe4e94a5f7ea6df2939, type: 3}
@@ -61,6 +65,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d676c44f04f87ed4d875e27819c930e0, type: 3}
   - {fileID: 8300000, guid: ad9cef9530892bc43bc9b5dc243c120b, type: 3}
   - {fileID: 8300000, guid: 3daba390dddf8654e9b68b87b9b5f04a, type: 3}
+  - {fileID: 8300000, guid: 1bcb2912fae89934ba43c9756aa7d255, type: 3}
 --- !u!1 &3349923100453023976
 GameObject:
   m_ObjectHideFlags: 0

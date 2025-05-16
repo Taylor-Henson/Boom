@@ -10,6 +10,7 @@ public class Buttons : MonoBehaviour
     {
         // Loads scene based off of integer chosen on the button
         SceneManager.LoadScene(sceneNumber);
+        AudioManager.instance.PlaySFX(10);
     }
 
     public void QuitGame()
@@ -28,5 +29,6 @@ public class Buttons : MonoBehaviour
 
         // Enables a menu from an array based off of the integer chosen on the button
         menus[menuNumber].gameObject.SetActive(true);
+        AudioManager.instance.PlaySFX(10);
     }
 }

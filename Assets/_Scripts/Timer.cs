@@ -15,6 +15,9 @@ public class Timer : MonoBehaviour
     void Start()
     {
 
+        // Start music
+        StartCoroutine(AudioManager.instance.PlayMusic(3));
+
         // Starts the timer
         time = maxTime;
         timerText.text = time + "/" + maxTime;

@@ -71,7 +71,6 @@ public class AudioManager : MonoBehaviour
 
         while(true)
         {
-            //print(length);
             // Plays one shot of chosen clip
             musicSource.PlayOneShot(music[clipNumber]);
 

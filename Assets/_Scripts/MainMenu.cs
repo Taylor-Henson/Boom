@@ -47,6 +47,14 @@ public class MainMenu : MonoBehaviour
 
     private void Start()
     {
+        // Plays music
+        int random = Random.Range(0, 3);
+        StartCoroutine(AudioManager.instance.PlayMusic(random));
+
+        // Unlocks cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
         // Initially sets sliders to pref value
         sliderX.value = PlayerPrefs.GetFloat("SensXPrefs");
         sliderY.value = PlayerPrefs.GetFloat("SensYPrefs");
@@ -86,5 +94,6 @@ public class MainMenu : MonoBehaviour
         }
 
         PlayerPrefs.SetInt("FPSTogglePrefs", toggleInt);
+        AudioManager.instance.PlaySFX(10);
     }
 }

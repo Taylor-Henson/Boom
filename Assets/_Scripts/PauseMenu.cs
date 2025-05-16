@@ -6,11 +6,6 @@ public class PauseMenu : MonoBehaviour
     public GameObject hud;
     public GameObject pauseMenu;
     public bool menu;
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
-    {
-
-    }
 
     // Update is called once per frame
     void Update()
@@ -71,5 +66,6 @@ public class PauseMenu : MonoBehaviour
 
         // Loads scene based off of integer chosen on the button
         SceneManager.LoadScene(sceneNumber);
+        AudioManager.instance.PlaySFX(10);
     }
 }
