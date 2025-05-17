@@ -93,7 +93,7 @@ public class Movement : MonoBehaviour
         moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
         // Jumping Input
-        if (Input.GetButton("Jump") && grounded && readyToJump && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true)
+        if (Input.GetButton("Jump") && grounded && readyToJump && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true && !GameManager.instance.deadOrGameOver)
         {
             // Calls jumping method
             Jump();
@@ -104,7 +104,7 @@ public class Movement : MonoBehaviour
         }
 
         // Dash input
-        if (Input.GetKeyDown("c") && canDash && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true)
+        if (Input.GetKeyDown("c") && canDash && GameObject.Find("Canvas").GetComponent<PauseMenu>().menu != true && !GameManager.instance.deadOrGameOver)
         {
             // Calls the dash method
             Dash();
@@ -119,19 +119,19 @@ public class Movement : MonoBehaviour
     {
         // Applies a force on the player in the direction found before
         // Force is applied in a FixedUpdate based method so it is applied evenly, not dependant on frame rate
-        if (grounded)
+        if (grounded && !GameManager.instance.deadOrGameOver)
         {
             // If on ground
             rb.AddForce(moveDirection.normalized * moveSpeed, ForceMode.Force);
         }
-        else if (!grounded)
+        else if (!grounded && !GameManager.instance.deadOrGameOver)
         {
             // If not on ground
             rb.AddForce(moveDirection.normalized * moveSpeed * airMultiplier, ForceMode.Force);
         }
 
         // Plays moving animation
-        if (moveDirection.magnitude >= 0.1 && grounded)
+        if (moveDirection.magnitude >= 0.1 && grounded && !GameManager.instance.deadOrGameOver)
         {
             cameraAnim.SetBool("Moving", true);
         }

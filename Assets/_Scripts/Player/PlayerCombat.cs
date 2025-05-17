@@ -1,5 +1,6 @@
 using UnityEngine;
 using TMPro;
+using UnityEngine.UI;
 
 public class PlayerCombat : MonoBehaviour
 {
@@ -10,6 +11,9 @@ public class PlayerCombat : MonoBehaviour
     public int health;
     public int maxHealth = 100;
 
+    [Header("Death")]
+    public GameObject deathMenu;
+
     #endregion
 
     #region Start and Update
@@ -18,6 +22,8 @@ public class PlayerCombat : MonoBehaviour
     {
         // Sets health to the maximum health at the beginning of the game
         health = maxHealth;
+
+        GameManager.instance.deadOrGameOver = false;
     }
 
     void Update()
@@ -51,9 +57,17 @@ public class PlayerCombat : MonoBehaviour
         
     }
 
-    void Die()
+    public void Die()
     {
-        print("You died");
+        // Sets death to true
+        GameManager.instance.deadOrGameOver = true;
+
+        // Unlocks cursor
+        Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
+
+        // Turns on death screen
+        deathMenu.SetActive(true);
     }
 
     #endregion

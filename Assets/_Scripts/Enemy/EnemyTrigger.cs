@@ -5,6 +5,7 @@ public class EnemyTrigger : MonoBehaviour
 {
     public StationaryEnemy stationaryEnemyScript;
     public EnemyCombat enemyCombatScript;
+    PlayerCombat playerCombatScript;
     public Rig rig;
 
     private void OnTriggerEnter(Collider other)

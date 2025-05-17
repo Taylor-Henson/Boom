@@ -1,8 +1,11 @@
+using TMPro;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
+    public bool deadOrGameOver;
+    public float highScore;
 
     #region Singleton
 
@@ -22,4 +25,10 @@ public class GameManager : MonoBehaviour
     }
 
     #endregion
+
+
+    private void Start()
+    {
+        
+    }
 }

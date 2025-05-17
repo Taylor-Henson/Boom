@@ -7,14 +7,14 @@ public class Timer : MonoBehaviour
     [Header("Timer")]
     public TextMeshProUGUI timerText;
     public TextMeshProUGUI menuTimerText;
+    public PlayerCombat playerCombat;
     public float time;
-    public float maxTime;
+    float maxTime = 90;
     public bool playing = false;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-
         // Start music
         StartCoroutine(AudioManager.instance.PlayMusic(3));
 
@@ -28,7 +28,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     { 
-        if (time > 0 && playing)
+        if (time > 0 && playing && !GameManager.instance.deadOrGameOver)
         {   
             // Counts down and displays
             time -= Time.deltaTime;
@@ -40,6 +40,7 @@ public class Timer : MonoBehaviour
         {
             // Game Over
             playing = false;
+            playerCombat.Die();
         }
     }
 }

@@ -64,7 +64,7 @@ public class Shotgun : MonoBehaviour
     void PlayerInput()
     {
         // Input for firing
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canShoot && !GameManager.instance.deadOrGameOver)
         {
             // Makes all shooting effects happen
             Shoot();
@@ -77,13 +77,13 @@ public class Shotgun : MonoBehaviour
         }
 
         // Input for reloading
-        if (Input.GetKeyDown("r") && !reloading && !firing && bulletsLeft != 6)
+        if (Input.GetKeyDown("r") && !reloading && !firing && bulletsLeft != 6 && !GameManager.instance.deadOrGameOver)
         {
             BeginReload();
         }
 
         // Input for throwing grenade
-        if (Input.GetKeyDown("e") && canUseGrenade)
+        if (Input.GetKeyDown("e") && canUseGrenade && !GameManager.instance.deadOrGameOver)
         {
             Instantiate(grenade, grenadeSpawn.transform.position, Quaternion.identity);
             grenades--;

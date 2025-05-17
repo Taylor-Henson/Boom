@@ -151,7 +151,7 @@ public class StationaryEnemy : MonoBehaviour
         // Debug.DrawRay(position, direction, Color.green);
 
         // Checks if player is closer than cover
-        if (playerHit.distance < groundHit.distance && !enemyCombatScript.dead)
+        if (playerHit.distance < groundHit.distance && !enemyCombatScript.dead && !GameManager.instance.deadOrGameOver)
         {
             // Calls for method to fire at player
             Shoot();

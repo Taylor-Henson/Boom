@@ -7,6 +7,7 @@ public class MainMenu : MonoBehaviour
     public Slider sliderX;
     public Slider sliderY;
     public Toggle fpsToggle;
+    public TextMeshProUGUI bestTimeText;
 
     public int toggleInt;
 
@@ -68,6 +69,11 @@ public class MainMenu : MonoBehaviour
         {
             fpsToggle.isOn = false;
         }
+    }
+
+    private void Update()
+    {
+        bestTimeText.text = "" + GameManager.instance.highScore;
     }
 
     public void OnSensXChanged(float value)
