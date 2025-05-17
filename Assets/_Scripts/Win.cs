@@ -5,6 +5,7 @@ using UnityEngine;
 public class Win : MonoBehaviour
 {
     public GameObject winScreen;
+    public GameObject deathScreen;
     public GameObject hud;
     public TextMeshProUGUI runTimeText;
     public Timer timerScript;
@@ -12,6 +13,7 @@ public class Win : MonoBehaviour
 
     private void Start()
     {
+        GameManager.instance.gameOver = false;
         hud.SetActive(true);
         runTime = 90;
     }
@@ -19,7 +21,7 @@ public class Win : MonoBehaviour
     private void Update()
     {
 
-        if (Input.GetKeyUp(KeyCode.T))
+        if (Input.GetKeyUp(KeyCode.F))
         {
             WinGame();
         }
@@ -34,7 +36,7 @@ public class Win : MonoBehaviour
     {
         // Sets win screen 
         winScreen.SetActive(true);
-        GameManager.instance.deadOrGameOver = true;
+        GameManager.instance.gameOver = true;
 
         // Unlocks cursor
         Cursor.lockState = CursorLockMode.None;
@@ -42,14 +44,15 @@ public class Win : MonoBehaviour
 
         // Gets rid of hud
         hud.SetActive(false);
+        deathScreen.SetActive(false);
 
-        runTime = timerScript.time;
+        runTime = 90 - timerScript.time;
         runTimeText.text = "Time: " + runTime; 
         
-        if (runTime > GameManager.instance.highScore)
+        if (runTime < GameManager.instance.highScore)
         {
-            print(runTime + " - " + GameManager.instance.highScore);
             GameManager.instance.highScore = runTime;
+            GameManager.instance.SavePlayerPrefs();
         }
     }
 }

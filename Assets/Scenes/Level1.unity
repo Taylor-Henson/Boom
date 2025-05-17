@@ -23581,6 +23581,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   winScreen: {fileID: 325079373}
+  deathScreen: {fileID: 472596584}
   hud: {fileID: 1819842782}
   runTimeText: {fileID: 1780697073}
   timerScript: {fileID: 1404790409}

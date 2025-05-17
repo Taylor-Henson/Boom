@@ -53,7 +53,7 @@ public class PlayerCam : MonoBehaviour
         xRotation = Mathf.Clamp(xRotation, -90f, 90f);
 
         //applies rotations onto the camera and the orientation of the player respectively
-        if (!GameManager.instance.deadOrGameOver)
+        if (!GameManager.instance.dead && !GameManager.instance.gameOver)
         {
             transform.rotation = Quaternion.Euler(xRotation, yRotation, 0);
             orientation.rotation = Quaternion.Euler(0, yRotation, 0);

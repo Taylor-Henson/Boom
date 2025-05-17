@@ -23,7 +23,7 @@ public class PlayerCombat : MonoBehaviour
         // Sets health to the maximum health at the beginning of the game
         health = maxHealth;
 
-        GameManager.instance.deadOrGameOver = false;
+        GameManager.instance.dead = false;
     }
 
     void Update()
@@ -60,7 +60,7 @@ public class PlayerCombat : MonoBehaviour
     public void Die()
     {
         // Sets death to true
-        GameManager.instance.deadOrGameOver = true;
+        GameManager.instance.dead = true;
 
         // Unlocks cursor
         Cursor.lockState = CursorLockMode.None;
