@@ -59,7 +59,7 @@ public class Movement : MonoBehaviour
         Animations();
 
         // Text
-        dashesText.text = "" + dashes;
+        dashesText.text = "Dashes: " + dashes;
 
         // Checks if the player has dashes available
         if (dashes <= 0)

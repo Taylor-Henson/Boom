@@ -54,8 +54,8 @@ public class Shotgun : MonoBehaviour
         CanPlayerShoot();
 
         // UI
-        ammoText.text = bulletsLeft +  " / " + magazineSize;
-        grenadeText.text = "" + grenades;
+        ammoText.text = "Ammo: " + bulletsLeft +  " / " + magazineSize;
+        grenadeText.text = "Grenades: " + grenades;
     }
 
     #endregion
@@ -139,7 +139,7 @@ public class Shotgun : MonoBehaviour
                 enemyCombatScript = rayHit.collider.GetComponent<EnemyCombat>();
 
                 // Applies damage
-                enemyCombatScript.TakeDamage(20);
+                enemyCombatScript.TakeDamage(25);
             }
         }
     }

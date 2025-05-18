@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour
 
     [Header("Death")]
     public GameObject deathMenu;
+    public GameObject hud;
 
     #endregion
 
@@ -29,7 +30,7 @@ public class PlayerCombat : MonoBehaviour
     void Update()
     {
         // UI
-        healthtext.text = health + "/" + maxHealth;
+        healthtext.text = "Health: " + health + "/" + maxHealth;
     }
 
     #endregion
@@ -68,6 +69,8 @@ public class PlayerCombat : MonoBehaviour
 
         // Turns on death screen
         deathMenu.SetActive(true);
+        Time.timeScale = 0;
+        hud.SetActive(false);
     }
 
     #endregion
