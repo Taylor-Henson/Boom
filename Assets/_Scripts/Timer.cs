@@ -20,7 +20,7 @@ public class Timer : MonoBehaviour
 
         // Starts the timer
         time = maxTime;
-        timerText.text = time + "/" + maxTime;
+        timerText.text = "" + time;
         menuTimerText.text = "Time = " + time + "/" + maxTime;
         playing = true;
     }
@@ -33,7 +33,7 @@ public class Timer : MonoBehaviour
             // Counts down and displays
             time -= Time.deltaTime;
             float roundedTime = Mathf.Round(time * 100f) / 100f;
-            timerText.text = roundedTime + "/" + maxTime;
+            timerText.text = "" + roundedTime;
             menuTimerText.text = "Time = " + roundedTime + "/" + maxTime;
         }
         else
