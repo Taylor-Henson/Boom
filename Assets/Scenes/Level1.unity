@@ -23722,6 +23722,7 @@ MonoBehaviour:
   winScreen: {fileID: 325079373}
   deathScreen: {fileID: 472596584}
   hud: {fileID: 1819842782}
+  playerCombatScript: {fileID: 0}
   runTimeText: {fileID: 1780697073}
   timerScript: {fileID: 1404790409}
 --- !u!1001 &2066219129
@@ -26420,6 +26421,7 @@ MonoBehaviour:
   maxHealth: 100
   deathMenu: {fileID: 472596584}
   hud: {fileID: 1819842782}
+  enemiesKilled: 0
 --- !u!114 &6337240801736504388
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -47,8 +47,8 @@ public class Win : MonoBehaviour
         deathScreen.SetActive(false);
 
         runTime = 90 - timerScript.time;
-        runTimeText.text = "Time: " + runTime; 
-        
+        runTimeText.text = "Time: " + runTime;
+
         if (runTime < GameManager.instance.highScore)
         {
             GameManager.instance.highScore = runTime;
