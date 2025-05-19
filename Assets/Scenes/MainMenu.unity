@@ -1618,7 +1618,7 @@ GameObject:
   - component: {fileID: 422541453}
   - component: {fileID: 422541452}
   m_Layer: 5
-  m_Name: FPSText
+  m_Name: MiscText
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1663,9 +1663,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Miscallaneous
-
-'
+  m_text: Miscellaneous
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: bd3cfb4aa04f0824786fd721826900b6, type: 2}
   m_sharedMaterial: {fileID: -8234026764716544601, guid: bd3cfb4aa04f0824786fd721826900b6, type: 2}
