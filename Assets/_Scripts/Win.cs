@@ -18,15 +18,6 @@ public class Win : MonoBehaviour
         runTime = 90;
     }
 
-    private void Update()
-    {
-
-        if (Input.GetKeyUp(KeyCode.F))
-        {
-            WinGame();
-        }
-    }
-
     private void OnTriggerEnter(Collider other)
     {
         WinGame();
